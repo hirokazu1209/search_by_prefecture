@@ -1,2 +1,8 @@
-<h1>Areas#new</h1>
-<p>Find me in app/views/areas/new.html.erb</p>
+<h1>都道府県</h1>
+<p>都道府県を入力してください</p>
+
+<%= form_with model: @area, local: true do |f| %>
+  <%= f.text_field :name %>
+  <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, {include_blank: "---"}, {class: ""} %>
+  <%= f.submit "送信"%>
+<% end %>
